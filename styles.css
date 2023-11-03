@@ -1,0 +1,66 @@
+h1, h2, h3, h4, ul, li, p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 50px;
+    background-color: cornflowerblue;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+main {
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+    /* display: flex; */
+    justify-content: space-between;
+}
+
+main div {
+    padding: 5%;
+}
+/*Table Generation Form*/
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+#table-generation-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+    border: 1px solid #666;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Table Proper*/
+table, td {
+    border: 1px solid black;
+    padding: 15px;
+    column-gap: normal;
+
+}
+
+#result-table-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+    border: 1px solid #666;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 30%;
+    margin-bottom: 1em;
+    border: 1px solid blue;
+    padding: 10px;
+    box-sizing: border-box;
+    color: aliceblue;
+    background-color: blue;
+}
