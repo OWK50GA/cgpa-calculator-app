@@ -46,10 +46,10 @@
             for (let i = 0; i < theadrow.children.length; i++) {
                 let tdata = document.createElement('td');
 
-                if (i == 0 | i == 1 | i == 2) {
+                if (i == 0 | i == 1) {
                     let inputField = document.createElement('input');
                     inputField.setAttribute('id', `inputfield${i}`);
-                    if (i == 1 | i == 2) {
+                    if (i == 1) {
                         inputField.setAttribute('type', 'number');
                     }
                     else {
@@ -57,6 +57,19 @@
                     }
                     inputField.setAttribute('required', 'true');
                     tdata.appendChild(inputField);
+                }
+                else if (i == 2) {
+                    let selectField = document.createElement('select');
+                    let [gradeA, gradeB, gradeC, gradeD, gradeE, gradeF]= [document.createElement('option', 'A'), document.createElement('option', 'B'), 
+                    document.createElement('option', 'C'), document.createElement('option', 'D'), document.createElement('option', 'E'), 
+                    document.createElement('option', 'F')];
+                    [gradeA.innerText, gradeB.innerText, gradeC.innerText, gradeD.innerText, gradeE.innerText, gradeF.innerText] = ['A', 'B', 'C', 'D', 'E', 'F'];
+                    selectField.appendChild(gradeA); selectField.appendChild(gradeB); selectField.appendChild(gradeC);
+                    selectField.appendChild(gradeD); selectField.appendChild(gradeE); selectField.appendChild(gradeF); 
+                    selectField.setAttribute('id', `inputfield${i}`);
+                    // selectField.setAttribute('type')
+                    selectField.setAttribute('required', 'true');
+                    tdata.appendChild(selectField);
                 }
 
                 newRow.appendChild(tdata);   
@@ -106,10 +119,20 @@
             let trow = tbody.children[i];
             let td_credit_load = parseInt(trow.children[1].children[0].value);
             // console.log(td_credit_load);
-            let td_grade = parseInt(trow.children[2].children[0].value);
+            let td_grade = trow.children[2].children[0].value;
+            let td_num_grade;
+            switch(td_grade){
+                case "A": td_num_grade = 5; break;
+                case "B": td_num_grade = 4; break;
+                case "C": td_num_grade = 3; break;
+                case "D": td_num_grade = 2; break;
+                case "E": td_num_grade = 1; break;
+                case "F": td_num_grade = 0; break;
+                default: td_num_grade = 0;
+            }
             // console.log(grade);
             let td_points = trow.children[3];
-            let td_multiple = td_credit_load * td_grade;
+            let td_multiple = td_credit_load * td_num_grade;
             td_points.innerHTML = td_multiple
             tdPoints.push(td_multiple);
             creditLoads.push(td_credit_load);
